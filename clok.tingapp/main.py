@@ -35,9 +35,9 @@ def loop():
     current_date = time.strftime("%d %B %Y")
     current_time = time.strftime(time_format_str)
     
-    screen.fill(color='blue')
+    screen.fill(color='black')
     
-    screen.text(current_time, xy=(160, 110), color='white', font_size=50)
-    screen.text(current_date, xy=(160, 180), color='grey', font_size=24)
+    screen.text(current_time, xy=(160, 110), color='yellow', font_size=50)
+    screen.text(current_date, xy=(160, 180), color='yellow', font_size=24)
 
 tingbot.run()
