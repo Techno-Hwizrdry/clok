@@ -7,5 +7,5 @@ Press the right most button, or touch the screen to switch the time formatting b
 ## Usage
 
 * Download and install the latest version of [Tide](https://github.com/tingbot/tide/releases/) for OS X.
-* Download the latest version of [clock.tingapp](https://github.com/tingbot-apps/clock/archive/master.zip).
-* Open `clock.tingapp` with Tide.
+* Download the latest version of [clok.tingapp](https://github.com/Techno-Hwizrdry/clok/archive/master.zip).
+* Open `clok.tingapp` with Tide.
