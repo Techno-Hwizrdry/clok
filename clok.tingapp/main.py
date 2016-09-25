@@ -7,7 +7,9 @@ import tingbot
 
 from tingbot import *
 
-def get_fonts():
+SAVEFILE = 'saved_font.sav'
+
+def load_fonts():
     x = 0
     f = {}
 
@@ -21,10 +23,22 @@ def get_fonts():
         
     return f
 
-fonts = get_fonts()
+fonts = load_fonts()
 state = { 'is_fomrat_pressed': False,
           'selected_font': 0
 }
+
+def get_saved_font():
+    infile = open(SAVEFILE, 'a+')
+    
+    try:
+        font_path = infile.readlines()[0]
+    except IndexError:
+        font_path = ''
+
+    infile.close()
+    
+    return font_path
 
 @left_button.press
 def cycle_font():
@@ -35,6 +49,10 @@ def cycle_font():
     
     if state['selected_font'] >= len(fonts):
         state['selected_font'] = 0
+    
+    outfile = open(SAVEFILE, 'w')
+    outfile.write(fonts[state['selected_font']])
+    outfile.close()
 
 @right_button.press
 def set_time_format():
@@ -57,7 +75,10 @@ def loop():
     date_format_str = "%d %B %Y"
     time_format_str = "%H:%M:%S"
     
-    sf = fonts[state['selected_font']]
+    sf = get_saved_font()
+    
+    if not sf:
+        sf = fonts[state['selected_font']]
     
     if state['is_fomrat_pressed']:
         time_format_str = "%I:%M:%S %p"
