@@ -15,7 +15,6 @@ def get_fonts():
     files = os.listdir(path)
     
     for filename in files:
-        #print "FILENAME = " + filename
         if filename.endswith(".ttf"):
             f.update( {x: path + filename} )
             x += 1
@@ -55,13 +54,10 @@ def on_touch(xy, action):
 
 @every(seconds=1.0/30)
 def loop():
-    print fonts
     date_format_str = "%d %B %Y"
     time_format_str = "%H:%M:%S"
     
     sf = fonts[state['selected_font']]
-    
-    print "FONT = " + sf
     
     if state['is_fomrat_pressed']:
         time_format_str = "%I:%M:%S %p"
